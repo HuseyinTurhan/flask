@@ -1,0 +1,64 @@
+{% extends "base.html"%}
+
+{% block head%}
+<title>Index page</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-3">
+    <h1>Welcome to Student Information Page!</h1>
+    <table class="table">
+        {% if tasks|length < 1 %}
+        <h4>There are no record to display! Create one below</h4>
+        {% else %}
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Group</th>
+                <th scope="col">College Name</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td scope="row">{{ task.id }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.age }}</td>
+                <td>{{ task.group }}</td>
+                <td>{{ task.college_name }}</td>
+                <td>
+                    <a href="/update/{{ task.id }}">Update Record</a>
+                    <br>
+                    <a href="/delete/{{ task.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+            <tr>
+                <form action="/" method="post">
+                    <td>
+                    <input type="text" name="id" id="id">
+                    </td>
+                    <td>
+                    <input type="text" name="name" id="name">
+                    </td>
+                    <td><input type="text" name="age" id="age">
+                    </td>
+                    <td><input type="text" name="group" id="group">
+                    </td>
+                    <td><input type="text" name="college" id="college">
+                    </td>
+                    <td><input type="submit" value="Add Record">
+                    </td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

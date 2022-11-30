@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block head%}
+<title>Update page</title>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container my-3">
+    <h1>Update Student Info</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Group</th>
+                <th scope="col">College Name</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form action="/update/{{ task.id }}" method="post">
+                    <td>
+                    <input type="text" name="id" id="id" value="{{ task.id }}">
+                    </td>
+                    <td>
+                    <input type="text" name="name" id="name" value="{{ task.name }}">
+                    </td>
+                    <td><input type="text" name="age" id="age" value="{{ task.age }}">
+                    </td>
+                    <td><input type="text" name="group" id="group" value="{{ task.group }}">
+                    </td>
+                    <td><input type="text" name="college" id="college" value="{{ task.college_name }}">
+                    </td>
+                    <td><input type="submit" value="Update Record">
+                    </td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
