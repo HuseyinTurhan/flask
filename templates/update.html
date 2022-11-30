@@ -11,7 +11,7 @@
 <div class="container my-3">
     <h1>Update Student Info</h1>
     <table class="table">
-        <thead>
+        <thead class="thead-light">
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
@@ -24,7 +24,7 @@
         <tbody>
             <tr>
                 <form action="/update/{{ task.id }}" method="post">
-                    <td>
+                    <th>
                     <input type="text" name="id" id="id" value="{{ task.id }}">
                     </td>
                     <td>
