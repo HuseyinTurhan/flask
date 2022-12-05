@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+
+{% block head%}
+<title>Dashboard page</title>
+{% endblock %}
+
+{% block content %}
+<div class="container my-3">
+    <h1 class="text text-success">Hello you are logged in!</h1>
+    <br>
+    <a href="{{ url_for('logout')}}" class="btn btn-danger">Logout</a>
+
+
+</div>
+
+{% endblock %}
